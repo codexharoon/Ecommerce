@@ -12,9 +12,5 @@ export default function Home() {
     }
   }, [isOpen, onOpen]);
 
-  return (
-    <div className="flex items-center gap-3 p-4">
-      <h1>Admin Dashboard</h1>
-    </div>
-  );
+  return null;
 }
