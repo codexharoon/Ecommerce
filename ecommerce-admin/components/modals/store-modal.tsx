@@ -41,8 +41,9 @@ export function ModalStore() {
     try {
       const response = await axios.post("/api/stores", values);
 
-      console.log(response.data);
       toast.success("Store created successfully.");
+
+      window.location.assign(`/${response.data.id}`); // this will give a refresh to the page
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong.");
