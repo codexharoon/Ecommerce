@@ -24,7 +24,7 @@ const page = async ({ params }: { params: { storeId: string } }) => {
   return (
     <div>
       <div className="flex flex-col p-8 pt-6">
-        <SettingsForm />
+        <SettingsForm initialData={store} />
       </div>
     </div>
   );

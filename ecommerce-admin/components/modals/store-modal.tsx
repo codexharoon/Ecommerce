@@ -19,16 +19,13 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-
-const formSchema = z.object({
-  name: z.string().min(2).max(50),
-});
+import { storeModelSchema } from "@/lib/zod-schemas";
 
 export function ModalStore() {
   const { isOpen, onClose } = useModalStore();
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof storeModelSchema>>({
+    resolver: zodResolver(storeModelSchema),
     defaultValues: {
       name: "",
     },
@@ -36,7 +33,7 @@ export function ModalStore() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof storeModelSchema>) {
     setIsLoading(true);
     try {
       const response = await axios.post("/api/stores", values);
