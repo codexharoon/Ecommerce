@@ -27,7 +27,7 @@ interface StoreSwitcherProps {
   items: Store[];
 }
 
-export function StoreSwitcher({ items }: StoreSwitcherProps) {
+export function StoreSwitcher({ items = [] }: StoreSwitcherProps) {
   const [open, setOpen] = useState(false);
 
   const params = useParams();

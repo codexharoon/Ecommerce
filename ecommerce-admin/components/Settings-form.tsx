@@ -62,10 +62,10 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
 
       await axios.delete(`/api/stores/${params.storeId}`);
 
-      router.refresh();
-      router.replace("/");
-
+      // router.refresh();
+      // router.replace("/");
       toast.success("Store deleted.");
+      window.location.assign("/");
     } catch (error) {
       console.error(error);
       toast.error("Make sure to delete all products and categories first.");
@@ -81,7 +81,7 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
         isOpen={open}
         onClose={() => setOpen(false)}
         loading={loading}
-        onConfirm={() => onDelete()}
+        onConfirm={onDelete}
       />
 
       <div className="flex items-center justify-between">
