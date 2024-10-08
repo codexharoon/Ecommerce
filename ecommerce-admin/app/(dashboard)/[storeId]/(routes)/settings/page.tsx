@@ -1,7 +1,7 @@
-import SettingsForm from "@/components/Settings-form";
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import SettingsForm from "./components/Settings-form";
 
 const page = async ({ params }: { params: { storeId: string } }) => {
   const { userId } = auth();
@@ -22,8 +22,8 @@ const page = async ({ params }: { params: { storeId: string } }) => {
   }
 
   return (
-    <div>
-      <div className="flex flex-col p-8 pt-6">
+    <div className="flex-col">
+      <div className="flex-1 p-8 pt-6 space-y-4">
         <SettingsForm initialData={store} />
       </div>
     </div>

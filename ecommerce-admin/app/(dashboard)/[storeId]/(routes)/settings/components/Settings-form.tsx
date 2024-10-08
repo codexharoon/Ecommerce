@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Heading } from "./ui/Heading";
+import { Heading } from "@/components/ui/Heading";
 import { Loader2, Trash } from "lucide-react";
-import { Separator } from "./ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { Store } from "@prisma/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,8 +22,9 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
-import AlertModal from "./modals/alert-modal";
-import ApiAlert from "./ui/api-alert";
+import AlertModal from "@/components/modals/alert-modal";
+import ApiAlert from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFormProps {
   initialData: Store;
@@ -35,6 +36,8 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
 
   const params = useParams();
   const router = useRouter();
+
+  const origin = useOrigin();
 
   const form = useForm<z.infer<typeof storeModelSchema>>({
     resolver: zodResolver(storeModelSchema),
