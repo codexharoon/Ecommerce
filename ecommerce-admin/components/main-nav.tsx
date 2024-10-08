@@ -17,9 +17,7 @@ export function MainNav({ className }: { className?: string }) {
     {
       label: "Billboards",
       href: `/${params.storeId}/billboards`,
-      active:
-        pathName === `/${params.storeId}/billboards` ||
-        pathName === `/${params.storeId}/billboards/new`,
+      active: pathName.startsWith(`/${params.storeId}/billboards`),
     },
     {
       label: "Settings",
