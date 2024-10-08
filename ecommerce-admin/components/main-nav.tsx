@@ -9,7 +9,11 @@ export function MainNav({ className }: { className?: string }) {
   const pathName = usePathname();
 
   const routes = [
-    // TODO - add overview route
+    {
+      label: "Overview",
+      href: `/${params.storeId}`,
+      active: pathName === `/${params.storeId}`,
+    },
     {
       label: "Settings",
       href: `/${params.storeId}/settings`,
