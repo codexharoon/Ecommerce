@@ -9,6 +9,7 @@ export function MainNav({ className }: { className?: string }) {
   const pathName = usePathname();
 
   const routes = [
+    // TODO - add overview route
     {
       label: "Settings",
       href: `/${params.storeId}/settings`,
