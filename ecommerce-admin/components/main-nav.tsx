@@ -15,6 +15,13 @@ export function MainNav({ className }: { className?: string }) {
       active: pathName === `/${params.storeId}`,
     },
     {
+      label: "Billboards",
+      href: `/${params.storeId}/billboards`,
+      active:
+        pathName === `/${params.storeId}/billboards` ||
+        pathName === `/${params.storeId}/billboards/new`,
+    },
+    {
       label: "Settings",
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
