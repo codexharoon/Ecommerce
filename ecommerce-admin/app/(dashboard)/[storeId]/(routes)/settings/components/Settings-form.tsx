@@ -80,7 +80,7 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
   }
 
   return (
-    <div>
+    <>
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
@@ -101,7 +101,7 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
         </Button>
       </div>
 
-      <Separator className="m-4" />
+      <Separator />
 
       <Form {...form}>
         <form
@@ -134,14 +134,14 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
         </form>
       </Form>
 
-      <Separator className="m-4" />
+      <Separator />
 
       <ApiAlert
         title="NEXT_PUBLIC_API_URL"
         description={`${origin}/api/${params.storeId}`}
         variant="public"
       />
-    </div>
+    </>
   );
 };
 
