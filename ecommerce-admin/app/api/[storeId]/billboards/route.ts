@@ -108,14 +108,7 @@ export async function GET(
       },
     });
 
-    return Response.json(
-      {
-        billboards,
-      },
-      {
-        status: 200,
-      }
-    );
+    return Response.json(billboards);
   } catch (error) {
     console.log("billboard get : ", error);
     return Response.json(

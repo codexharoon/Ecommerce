@@ -3,9 +3,26 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function GET(
   req: Request,
-  { params }: { params: { billboardId: string } }
+  { params }: { params: { storeId: string; billboardId: string } }
 ) {
   try {
+    const store = await prisma.store.findUnique({
+      where: {
+        id: params.storeId,
+      },
+    });
+
+    if (!store) {
+      return Response.json(
+        {
+          message: "Store not found",
+        },
+        {
+          status: 404,
+        }
+      );
+    }
+
     const billboard = await prisma.billboard.findUnique({
       where: {
         id: params.billboardId,
