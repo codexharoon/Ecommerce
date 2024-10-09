@@ -66,8 +66,8 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
         await axios.post(`/api/${params.storeId}/billboards`, values);
       }
 
-      toast.success(toastMessage);
       router.replace(`/${params.storeId}/billboards`);
+      toast.success(toastMessage);
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong.");
@@ -86,12 +86,11 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
         );
       }
 
-      toast.success(toastMessage);
       router.replace(`/${params.storeId}/billboards`);
-      // window.location.assign(`/${params.storeId}/billboards`);
+      toast.success(toastMessage);
     } catch (error) {
       console.error(error);
-      toast.error("Make sure to delete all products and categories first.");
+      toast.error("Make sure you removed all categories using this billboard.");
     } finally {
       setLoading(false);
       setOpen(false);

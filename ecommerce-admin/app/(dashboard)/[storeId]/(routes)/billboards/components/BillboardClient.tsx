@@ -33,7 +33,7 @@ const BillboardClient = ({ billboards }: BillboardClientProps) => {
 
       <Separator />
 
-      <DataTable columns={columns} data={billboards} />
+      <DataTable searchKey="label" columns={columns} data={billboards} />
     </>
   );
 };
