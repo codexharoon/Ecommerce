@@ -8,3 +8,8 @@ export const billboardModelSchema = z.object({
   label: z.string().min(2).max(50),
   imageUrl: z.string().min(1),
 });
+
+export const CategoriesModelSchema = z.object({
+  name: z.string().min(2).max(50),
+  billboardId: z.string().min(1),
+});

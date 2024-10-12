@@ -20,6 +20,11 @@ export function MainNav({ className }: { className?: string }) {
       active: pathName.startsWith(`/${params.storeId}/billboards`),
     },
     {
+      label: "Categories",
+      href: `/${params.storeId}/categories`,
+      active: pathName.startsWith(`/${params.storeId}/categories`),
+    },
+    {
       label: "Settings",
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
