@@ -35,9 +35,9 @@ const ApiAlert = ({ title, description, variant }: ApiAlertProps) => {
         <Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
       </AlertTitle>
       <AlertDescription className="flex items-center justify-between mt-4">
-        <code className="relative font-semibold bg-muted font-mono px-[0.3rem] py-[0.4rem]">
+        <p className="relative font-semibold rounded bg-muted font-mono text-sm px-[0.3rem] py-[0.2rem]">
           {description}
-        </code>
+        </p>
 
         <Button variant={"outline"} size={"icon"} onClick={onCopy}>
           <Copy className="h-4 w-4" />
