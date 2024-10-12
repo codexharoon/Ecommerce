@@ -67,6 +67,7 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
       }
 
       router.replace(`/${params.storeId}/billboards`);
+      router.refresh();
       toast.success(toastMessage);
     } catch (error) {
       console.error(error);
@@ -87,6 +88,7 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
       }
 
       router.replace(`/${params.storeId}/billboards`);
+      router.refresh();
       toast.success(toastMessage);
     } catch (error) {
       console.error(error);
