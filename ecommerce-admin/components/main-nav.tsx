@@ -30,6 +30,11 @@ export function MainNav({ className }: { className?: string }) {
       active: pathName.startsWith(`/${params.storeId}/sizes`),
     },
     {
+      label: "Colors",
+      href: `/${params.storeId}/colors`,
+      active: pathName.startsWith(`/${params.storeId}/colors`),
+    },
+    {
       label: "Settings",
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
@@ -45,7 +50,7 @@ export function MainNav({ className }: { className?: string }) {
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary",
             route.active
-              ? "text-black dark:text-white"
+              ? "text-black dark:text-white font-semibold"
               : "text-muted-foreground"
           )}
         >
