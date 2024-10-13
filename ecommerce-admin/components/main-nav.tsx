@@ -25,6 +25,11 @@ export function MainNav({ className }: { className?: string }) {
       active: pathName.startsWith(`/${params.storeId}/categories`),
     },
     {
+      label: "Sizes",
+      href: `/${params.storeId}/sizes`,
+      active: pathName.startsWith(`/${params.storeId}/sizes`),
+    },
+    {
       label: "Settings",
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
