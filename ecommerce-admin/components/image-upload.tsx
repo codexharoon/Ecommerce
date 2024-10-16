@@ -26,6 +26,7 @@ const ImageUpload = ({
   }, []);
 
   const onUpload = (result: any) => {
+    console.log(result);
     onChange(result.info.secure_url);
   };
 
@@ -37,10 +38,14 @@ const ImageUpload = ({
     <div>
       <div className="mb-4 flex items-center gap-4">
         {values.map((url) => (
-          <div className="relative size-[200px] rounded-md shadow-sm overflow-hidden">
+          <div
+            key={`image-${url}`}
+            className="relative w-[200px] h-[200px] rounded-md shadow-sm overflow-hidden"
+          >
             <Button
               type="button"
               variant={"destructive"}
+              size={"icon"}
               className="absolute top-2 right-2 z-10"
               onClick={() => onRemove(url)}
             >
@@ -51,8 +56,8 @@ const ImageUpload = ({
               alt="image"
               src={url}
               className="object-cover"
-              fill
-              sizes="200px"
+              width={200}
+              height={200}
             />
           </div>
         ))}

@@ -35,6 +35,11 @@ export function MainNav({ className }: { className?: string }) {
       active: pathName.startsWith(`/${params.storeId}/colors`),
     },
     {
+      label: "Products",
+      href: `/${params.storeId}/products`,
+      active: pathName.startsWith(`/${params.storeId}/products`),
+    },
+    {
       label: "Settings",
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
