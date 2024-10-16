@@ -171,9 +171,21 @@ const ProductForm = ({
                   <ImageUpload
                     disabled={loading}
                     values={field.value.map((image) => image.url)}
-                    onChange={(url) =>
-                      field.onChange([...field.value, { url }])
-                    }
+                    // not working as expected
+                    // onChange={(url) => {
+                    //   console.log("before", field.value);
+                    //   field.onChange([...field.value, { url }]);
+                    //   console.log("after", field.value);
+                    // }}
+
+                    onChange={(url) => {
+                      const currentImages = form.getValues("images");
+                      const newImage = { url: url };
+                      const updatedImages = [...currentImages, newImage];
+                      form.setValue("images", updatedImages, {
+                        shouldValidate: true,
+                      });
+                    }}
                     onRemove={(url) =>
                       field.onChange([
                         ...field.value.filter((image) => image.url !== url),

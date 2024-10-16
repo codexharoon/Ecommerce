@@ -55,7 +55,7 @@ const ImageUpload = ({
             <Image
               alt="image"
               src={url}
-              className="object-cover"
+              className="object-cover w-auto h-auto"
               width={200}
               height={200}
             />
@@ -63,7 +63,11 @@ const ImageUpload = ({
         ))}
       </div>
 
-      <CldUploadWidget onSuccess={onUpload} uploadPreset="idaekahp">
+      <CldUploadWidget
+        onSuccess={onUpload}
+        options={{ multiple: true }}
+        uploadPreset="idaekahp"
+      >
         {({ open }) => {
           return (
             <Button
