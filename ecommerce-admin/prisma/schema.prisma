@@ -15,7 +15,8 @@ datasource db {
 }
 
 model Store {
-  id     String @id @default(cuid())
+  id String @id @default(uuid())
+
   name   String
   userId String
 
@@ -24,6 +25,7 @@ model Store {
   sizes      Size[]
   colors     Color[]
   products   Product[]
+  orders     Order[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -32,13 +34,13 @@ model Store {
 model Billboard {
   id String @id @default(cuid())
 
-  storeId String
-  store   Store  @relation(fields: [storeId], references: [id])
-
   label    String
   imageUrl String
 
   categories Category[]
+
+  storeId String
+  store   Store  @relation(fields: [storeId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -99,7 +101,8 @@ model Product {
   isFeatured Boolean @default(false)
   isArchived Boolean @default(false)
 
-  images Image[]
+  images     Image[]
+  orderItems OrderItem[]
 
   storeId String
   store   Store  @relation(fields: [storeId], references: [id])
@@ -124,6 +127,35 @@ model Image {
 
   productId String
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id String @id @default(uuid())
+
+  isPaid  Boolean @default(false)
+  phone   String  @default("")
+  address String  @default("")
+
+  orderItems OrderItem[]
+
+  storeId String
+  store   Store  @relation(fields: [storeId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id String @id @default(uuid())
+
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id])
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
